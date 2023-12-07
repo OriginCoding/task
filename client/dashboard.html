@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+</head>
+<body>
+ 
+    <h1>Welcome to Your Dashboard</h1>
+    <p>This is your profile dashboard page.</p>
+    <p>Customize it as needed.</p>
+    
+    <!-- Add a section for displaying the download link -->
+    <div id="downloadSection" style="display: none;">
+        <h2>Download File</h2>
+        <a id="downloadLink" href="#" download>Download File</a>
+    </div>
+
+    
+   <!-- File upload form -->
+<h2>Upload File</h2>
+<input type="file" id="fileInput" required>
+<br>
+<button onclick="handleFileUpload()">Upload</button>
+<div id="uploadSuccessMessage" style="display: none;">
+    <p>File uploaded successfully!</p>
+</div>
+
+    <!-- Add a section for removing files -->
+    <div id="removeSection">
+        <h2>Remove File</h2>
+        <label for="removeCodeInput">Enter 6-digit Code:</label>
+        <input type="text" id="removeCodeInput" />
+        <button onclick="removeFile()">Remove File</button>
+    </div>
+    
+<!-- Display list of uploaded files -->
+<div id="uploadedFiles">
+    <h2>Uploaded Files</h2>
+    <ul id="filesList"></ul>
+    <!-- Add a section for displaying the code verification -->
+    <div id="codeSection">
+        <label for="codeInput">Enter 6-digit Code:</label>
+        <input type="text" id="codeInput" />
+        <button onclick="verifyCode()">Verify Code</button>
+    </div>
+</div>
+
+
+    <!-- Add a section for remove success message -->
+    <div id="removeSuccessMessage" style="display: none;">
+        <p>File removed successfully!</p>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>
