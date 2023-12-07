@@ -65,6 +65,8 @@ In the "Remove File" section, enter the 6-digit code for the file you want to re
 
 Additional Notes
 
+can use check_files_uploaded_privacy file to have the 6 digit code and file name displayed privately for n users
+
 Uploaded files are stored in the uploads directory.
 
 User data is stored in users.json.
