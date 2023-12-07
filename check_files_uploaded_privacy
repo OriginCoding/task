@@ -1,0 +1,29 @@
+app.post('/upload', upload.single('file'), async (req, res) => {
+    try {
+        if (req.session && req.session.user) {
+            // Log the current working directory to check the server's location
+            console.log('Current working directory:', process.cwd());
+
+            // Log the contents of the uploads directory
+            const uploadPath = path.join(__dirname, 'uploads');
+            console.log('Contents of uploads directory:', fs.readdirSync(uploadPath));
+
+            const userFiles = await fs.promises.readdir(uploadPath)
+                .then(files => files.filter(file => file.startsWith(req.session.user.username)));
+
+            // Extract 6-digit code from filenames
+            const filesWithCodes = userFiles.map(file => {
+                const code = file.split('-')[0];
+                return { code, filename: file };
+            });
+
+            // Send the list of uploaded files as a response
+            res.send(`File uploaded successfully. Uploaded files:\n${JSON.stringify(filesWithCodes, null, 2)}`);
+        } else {
+            res.redirect('/');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
