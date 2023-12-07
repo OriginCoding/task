@@ -19,6 +19,8 @@ and download files using a unique 6-digit code.
 
 Install the dependencies:
 
+refer json file for more dependencies to install
+
 cd <project_directory>
 
 npm install
